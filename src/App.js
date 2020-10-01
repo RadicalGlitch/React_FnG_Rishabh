@@ -1,13 +1,13 @@
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-import Header from "./components/Header";
+import TabView from "./TabView";
 
 const App = () => {
   return (
     <>
       <CssBaseline />
-      <Header />
+      <TabView />
     </>
   );
 };

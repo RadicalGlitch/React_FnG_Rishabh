@@ -2,8 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Tabs, Tab, Box } from "@material-ui/core";
+import SwipeableViews from "react-swipeable-views";
 
-import Form from "../pages/Form";
+import Form from "./pages/Form";
+import Table from "./pages/Table";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -16,7 +18,11 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box p={3}>{children}</Box>}
+      {value === index && (
+        <Box p={3} pt={8}>
+          {children}
+        </Box>
+      )}
     </div>
   );
 }
@@ -37,7 +43,7 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: "theme.palette.background.paper",
   },
 }));
 
@@ -51,7 +57,7 @@ export default function SimpleTabs() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Tabs
           value={value}
           onChange={handleChange}
@@ -61,12 +67,14 @@ export default function SimpleTabs() {
           <Tab label="Table" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
-        <Form />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
+      <SwipeableViews index={value}>
+        <TabPanel value={value} index={0}>
+          <Form />
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <Table />
+        </TabPanel>
+      </SwipeableViews>
     </div>
   );
 }
