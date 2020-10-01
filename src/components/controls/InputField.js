@@ -1,6 +1,5 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
-import { FormControl, FormLabel } from "@material-ui/core";
+import { FormControl, FormLabel, TextField } from "@material-ui/core";
 
 export default function InputField(props) {
   const {

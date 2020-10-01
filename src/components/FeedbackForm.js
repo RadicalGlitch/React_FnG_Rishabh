@@ -1,6 +1,5 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
-import InputAdornment from "@material-ui/core/InputAdornment";
+import { Grid, InputAdornment } from "@material-ui/core";
 import { Flag } from "semantic-ui-react";
 
 import Controls from "./controls/Controls";
